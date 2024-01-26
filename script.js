@@ -78,28 +78,12 @@ function openModal(id) {
 
 async function GetCategories(name) {
     
-    let nombremovies;
-    if (name === "") {
-        nombremovies = 8;
-    } else {
-        nombremovies = 7;
-    }
-    
-    const ResultsCategories = await fetch(Url + "?sort_by=-imdb_score&genre=" + name);
+    const ResultsCategories = await fetch(Url + "?page_size=7&sort_by=-imdb_score&genre=" + name);
     if (!ResultsCategories.ok)
         return;
 
     const data = await ResultsCategories.json();
     let moviesData = Array(...data.results);
-
-    if (moviesData.length < nombremovies) {
-        try {
-            let ResultsCategories2 = await (await fetch(data.next)).json();
-            moviesData.push(...Array(...ResultsCategories2.results).slice(0, nombremovies - moviesData.length));
-        } catch (error) {
-            console.error("Error fetching additional data:", error);
-        }
-    }
     
     // Parcourir moviesData et gérer les erreurs d'image
     moviesData = await Promise.all(moviesData.map(async movie => {
@@ -120,14 +104,9 @@ async function GetCategories(name) {
             };
         }
     }));
-    if (name === "" && nombremovies === 8 ) {
-        moviesData.splice(0, 1);
-    }
     
     return moviesData;
 }
-
-
 
 async function CarrouselCategory(category) {
 
