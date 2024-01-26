@@ -1,4 +1,4 @@
-![justsreamit](images/juststreamit.png)
+![justsreamit](images/JustStreamIt.png)
 
 # Projet 6 : Développez une interface utilisateur pour une application web Python
 
