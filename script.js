@@ -1,5 +1,5 @@
 const Url = "http://localhost:8000/api/v1/titles/";
-let total=7;
+// Permet d'attendre la fin du chargement avant affichage
 window.addEventListener('load', () => {
     BestNoteMovie();
     CarrouselCategory("");
@@ -53,14 +53,16 @@ function openModal(id) {
             document.getElementById('modal-duration').innerHTML = data.duration + " min";
             document.getElementById('modal-country').innerHTML = data.countries;
             let modalBoxOffice = document.getElementById('modal-box-office');
+            // permet d'afficher "sans objet" quand le revenu est vide
             if (data.worldwide_gross_income == null) {
                 modalBoxOffice.innerHTML = "N/A";
             } else  {
                 modalBoxOffice.innerHTML = data.worldwide_gross_income.toLocaleString() + " " + data.budget_currency;
             }
+            // permet d'afficher "sans objet" quand la description est vide
             let modalDesc = document.getElementById('modal-desc');
             if (data.long_description == null) {
-                modalDesc.innerHTML = "N/A";
+                modalDesc.innerHTML = "sans objet";
             } else {
                 modalDesc.innerHTML = data.long_description;
             }
@@ -77,7 +79,7 @@ function openModal(id) {
 }
 
 async function GetCategories(name) {
-    
+    // permet de choisir les 7 premiers films
     const ResultsCategories = await fetch(Url + "?page_size=7&sort_by=-imdb_score&genre=" + name);
     if (!ResultsCategories.ok)
         return;
@@ -96,11 +98,12 @@ async function GetCategories(name) {
                 ...movie,
                 image_url: movie.image_url,
             };
+            // Quand il y a une erreur, on affiche une image de remplacement
         } catch (error) {
             console.error("Erreur loading image :", error.message);
             return {
                 ...movie,
-                image_url: "images/no_image.jpg", // Remplacer par l'image de remplacement en cas d'erreur
+                image_url: "images/no_image.jpg"
             };
         }
     }));
@@ -126,7 +129,7 @@ async function CarrouselCategory(category) {
     carrousel.classList.add('container');
 
     const categoryTitle = document.createElement('h2');
-    categoryTitle.innerHTML = `${category} movies`;
+    categoryTitle.innerHTML = `${category}`;
     
     carrousel.append(categoryTitle);
 
@@ -136,7 +139,7 @@ async function CarrouselCategory(category) {
     const carrouselContent = document.createElement('div');
     carrouselContent.classList.add('carrousel-content');
     carrouselContent.setAttribute("id", `${DisplayCategoryName}-movies`);
-    carrouselContent.style.left = "75px"; 
+    carrouselContent.style.left = "70px"; 
     document.querySelector('.carrousels').appendChild(section);
     const movies = await  GetCategories(categoryName);
 
