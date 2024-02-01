@@ -175,6 +175,7 @@
     overflow: auto;
     background-color: var(--dark); 
     padding-top: 60px;
+    padding-bottom: 30px;
 }
 
 #modal-title {

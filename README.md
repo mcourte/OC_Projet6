@@ -33,6 +33,3 @@ python3 manage.py runserver
 ## 3. Utilisation du programme
 
 Pour lancer le programme, ouvrez le fichier `index.html` avec un navigateur internet, qui se situe dans le repertoire où vous avez télécharger le projet.
-
-
-
