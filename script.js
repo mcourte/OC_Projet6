@@ -7,7 +7,8 @@ window.addEventListener('load', () => {
     CarrouselCategory("thriller");
     CarrouselCategory("mystery");
     });
- 
+
+// Fonction qui permet de trouver le film le mieux noté
 function BestNoteMovie() {
     let bestMovieTitle = document.getElementById('top-title');
     let bestImg = document.getElementsByClassName('bestcontent-image')[0].getElementsByTagName("img")[0];
@@ -115,7 +116,7 @@ async function CarrouselCategory(category) {
 
     let categoryName = category;
     let DisplayCategoryName = category;
-    
+    // Si il n'y a pas de catégories de choisie, c'est la catégorie Best qui est affichée
     if (category === ""){
         category = "Best";
     }
@@ -174,7 +175,7 @@ async function CarrouselCategory(category) {
         i++;
     }
 
-    
+    // Permet de créer les boutons qui permettent de  naviguer dans le carrousel
     const controls = document.createElement("div");
     controls.classList.add("controls");
     if (movies.length >= 5) {
@@ -190,7 +191,7 @@ async function CarrouselCategory(category) {
     section.appendChild(carrousel);
     
 }
-// carrousel controls
+// Fonctions qui contrôlent le carrousel
 
 function CarrouselLeft(category) {
     let carrouselContent = document.querySelector("#" + category + "-movies");
@@ -207,7 +208,7 @@ function CarrouselLeft(category) {
     }
 }
 
-
+    
     function CarrouselRight(category) {
         let carrouselContent = document.querySelector("#" + category + "-movies");
     
