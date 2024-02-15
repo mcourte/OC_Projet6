@@ -3,7 +3,7 @@ const Url = "http://localhost:8000/api/v1/titles/";
 window.addEventListener('load', () => {
     BestNoteMovie();
     CarrouselCategory("");
-    CarrouselCategory("horror");;
+    CarrouselCategory("horror");
     CarrouselCategory("thriller");
     CarrouselCategory("mystery");
     });
