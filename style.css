@@ -334,7 +334,7 @@
 
 .categories {
     align-items: center;
-    background: linear-gradient((var(--primary), var(--light)));
+    background: linear-gradient(var(--primary), var(--light));
     display: flex;
     height: 600px;
     justify-content: center;
