@@ -1,7 +1,12 @@
 ![justsreamit](images/JustStreamIt.png)
 
-# Projet 6 : Développez une interface utilisateur pour une application web Python
+# Projet 6 : Développez une interface utilisateur pour une application web Python  
 
+***Compétences acquises lors de la réalisation de ce projet:***  
+  
+*1. Développer la partie Front-End d’une application avec HTML, CSS et JavaScript*  
+*2. Interagir avec une API REST*  
+  
 
 ## 1. Initialisation du projet
 
