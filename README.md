@@ -7,6 +7,9 @@
 *1. Développer la partie Front-End d’une application avec HTML, CSS et JavaScript*  
 *2. Interagir avec une API REST*  
   
+## But du projet :
+
+Création de l'interface utilisateur ( HTML, CSS, JavaScript) pour un site web de classement de films, à partir d'une API existante.  
 
 ## 1. Initialisation du projet
 
